@@ -26,5 +26,14 @@ void main()
   cout << "Matrix a = " << endl << a << endl;
   cout << "Matrix b = " << endl << b << endl;
   cout << "Matrix c = a + b" << endl << c << endl;
+
+  cout << "Тестирование ввода/вывода матрицы и операций с ними" << endl;
+  TDynamicMatrix<int> m1(3), m2(3), m3(3);
+  cin >> m1;
+  cout << "Matrix m1:" << endl << m1;
+  cin >> m2;
+  cout << "Matrix m1:" << endl << m2;
+  m3 = m1 * m2;
+  cout << "Matrix m3 = m1 * m2:" << endl << m3;
 }
 //---------------------------------------------------------------------------

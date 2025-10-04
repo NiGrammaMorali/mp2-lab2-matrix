@@ -340,8 +340,20 @@ public:
     }
     TDynamicMatrix operator*(const TDynamicMatrix& m)
     {
-        TDynamicMatrix C(1);
-        return C;
+        if (sz != m.size()) {
+            throw invalid_argument("Given matrix has different size");
+        }
+        TDynamicMatrix res(sz);
+        for (size_t k = 0; k < sz; k++) {
+            for (size_t i = 0; i < sz; i++) {
+                T tmp = 0;
+                for (size_t j = 0; j < sz; j++) {
+                    tmp += pMem[k][j] * m[j][i];
+                }
+                res[k][i] = tmp;
+            }
+        }
+        return res;
     }
 
     // ввод/вывод
