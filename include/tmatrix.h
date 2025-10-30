@@ -75,13 +75,7 @@ public:
     }
     TDynamicVector& operator=(TDynamicVector&& v) noexcept
     {
-        if (this != &v) {
-            delete[] pMem;
-            sz = v.sz;
-            pMem = v.pMem;
-            v.pMem = nullptr;
-            v.sz = 0;
-        }
+        swap(*this, v);
         return *this;
     }
 
@@ -369,7 +363,7 @@ public:
     friend ostream& operator<<(ostream& ostr, const TDynamicMatrix& v)
     {
         
-        T size = v.sz;
+        const size_t size = v.sz;
         for (size_t i = 0; i < size; i++) {
             for (size_t j = 0; j < size; j++) {
                 ostr << v[i][j] << ' ';

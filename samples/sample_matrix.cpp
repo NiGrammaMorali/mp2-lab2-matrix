@@ -5,12 +5,13 @@
 // Тестирование матриц
 
 #include <iostream>
-#include "tmatrix.h"
+#include "LinearMatrix.h"
+#include "BandMatrix.h"
 //---------------------------------------------------------------------------
 
 void main()
 {
-  TDynamicMatrix<int> a(5), b(5), c(5);
+  TDynamicMatrix<double> a(5), b(5), c(5);
   int i, j;
 
   setlocale(LC_ALL, "Russian");
@@ -28,12 +29,15 @@ void main()
   cout << "Matrix c = a + b" << endl << c << endl;
 
   cout << "Тестирование ввода/вывода матрицы и операций с ними" << endl;
-  TDynamicMatrix<int> m1(3), m2(3), m3(3);
+  //LinearMatrix m1(2, 3), m2(3, 2);
+  BandMatrix m1(3, 2, 1), m2(3, 3, 2);
   cin >> m1;
   cout << "Matrix m1:" << endl << m1;
   cin >> m2;
-  cout << "Matrix m1:" << endl << m2;
-  m3 = m1 * m2;
+  cout << "Matrix m2:" << endl << m2;
+  BandMatrix m3 = m1 * m2;
   cout << "Matrix m3 = m1 * m2:" << endl << m3;
+  LinearMatrix M(c);
+  cout << "Matrix M = c:" << endl << M;
 }
 //---------------------------------------------------------------------------

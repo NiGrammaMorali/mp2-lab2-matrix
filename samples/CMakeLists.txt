@@ -1,7 +1,6 @@
 # Get all cpp-files in the current directory
 file(GLOB samples_list RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 
-
 foreach(sample_filename ${samples_list})
   # Get file name without extension
   get_filename_component(sample ${sample_filename} NAME_WE)
@@ -14,3 +13,5 @@ foreach(sample_filename ${samples_list})
     PROJECT_LABEL "${sample}"
     RUNTIME_OUTPUT_DIRECTORY "../")
 endforeach()
+target_link_libraries(${sample} matrix)
+
