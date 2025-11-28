@@ -60,6 +60,12 @@ void swap(LinearMatrix& lhs, LinearMatrix& rhs) noexcept{
 	std::swap(lhs.cols, rhs.cols);
 	std::swap(lhs.rows, rhs.rows);
 }
+double LinearMatrix::GetCols() const {
+	return this->cols;
+}
+double LinearMatrix::GetRows() const {
+	return this->rows;
+}
 LinearMatrix& LinearMatrix::operator=(const LinearMatrix& m) {
 	if (this != &m) {
 		size_t size = m.size();
@@ -113,6 +119,12 @@ const double& LinearMatrix::at(size_t ind1, size_t ind2) const {
 		throw std::out_of_range("The index is out of range");
 	}
 	return pMem[ind2 + ind1 * cols];
+}
+double& LinearMatrix::operator[](size_t ind) {
+	return pMem[ind];
+}
+const double& LinearMatrix::operator[](size_t ind) const{
+	return pMem[ind];
 }
 bool LinearMatrix::operator==(const LinearMatrix& m) const noexcept {
 	if ((cols != m.cols) || (rows != m.rows)) {

@@ -7,6 +7,7 @@
 #include <iostream>
 #include "LinearMatrix.h"
 #include "BandMatrix.h"
+#include "CSRMatrix.h"
 //---------------------------------------------------------------------------
 
 void main()
@@ -30,14 +31,11 @@ void main()
 
   cout << "Тестирование ввода/вывода матрицы и операций с ними" << endl;
   //LinearMatrix m1(2, 3), m2(3, 2);
-  BandMatrix m1(3, 2, 1), m2(3, 3, 2);
-  cin >> m1;
-  cout << "Matrix m1:" << endl << m1;
-  cin >> m2;
-  cout << "Matrix m2:" << endl << m2;
-  BandMatrix m3 = m1 * m2;
-  cout << "Matrix m3 = m1 * m2:" << endl << m3;
-  LinearMatrix M(c);
-  cout << "Matrix M = c:" << endl << M;
+  LinearMatrix m(3, 2);
+  cin >> m;
+  cout << "Matrix m:" << endl << m;
+  CSRMatrix R(m);
+  cout << "Matrix R = c:" << endl << R;
+  R.print_in_stored_format();
 }
 //---------------------------------------------------------------------------
